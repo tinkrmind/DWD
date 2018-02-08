@@ -2,7 +2,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var calcEntropy = require('binary-shannon-entropy');
 var zxcvbn = require('zxcvbn');
+var passwordHash = require('password-hash');
+var result;
+var beautify = require("json-beautify");
+
 var app = express();
+var userlist =['username', 'email', 'passwordHash'];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -80,11 +85,13 @@ app.post('/testMyPassword', function(req,res){
 	// console.log(req.body.user_password);
 	
 	var password = req.body.user_password;
+	var hash = passwordHash.generate(password);
 	var username = req.body.user_name;
 	var email = req.body.user_email;
 	var user_data = [username, email];
+	userlist.push([username, email, hash]);
 
-	var result = zxcvbn(password, user_data);
+	result = zxcvbn(password, user_data);
 
 	var score =result.score;
 	var crackTime = result.crack_times_display.offline_fast_hashing_1e10_per_second;
@@ -92,6 +99,14 @@ app.post('/testMyPassword', function(req,res){
 	var suggestions = result.feedback.suggestions;
 
 	res.send(returnHTML(score, crackTime, warning, suggestions));
+})
+
+app.all('/listAllUsers/', function(req, res){
+	res.send(userlist);
+})
+
+app.all('/showFullAnalysis/', function(req,res){
+	res.send(result);
 })
 
 port = 8080;
