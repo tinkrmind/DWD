@@ -2,12 +2,34 @@
 <html>
 <head>
 	<title>This is a form.</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<form action="/postANumber/" method="post">
-		<label for="nameOfNumber">Enter a random number: </label>
-		<input type="number" name="nameOfNumber">
+<!-- 	<form action="/newUser/" method="post">
+		<input type="text" name="name" placeholder="your name">
+		<input type="text" name="username" placeholder="username">
+		<input type="password" name="password">
 		<input type="submit" value="OK">
-	</form>
+	</form> -->
+
+<form action="/testMyPassword/" method="post">
+  <h1>Sign Up</h1>
+
+  <fieldset>
+    <legend>Your basic info</legend>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="user_name">
+
+    <label for="mail">Email:</label>
+    <input type="email" id="mail" name="user_email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="user_password">
+
+    <button type="submit">Sign Up</button>
+</fieldset>
+</form>
+
+
 </body>
 </html>
