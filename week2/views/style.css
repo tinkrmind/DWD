@@ -115,15 +115,3 @@ label.light {
     max-width: 480px;
   }
 }
-
-
-
-
-
-body{background-color:#b841f4 ;} 
-.header{text-align :center;font-family: Arial, Helvetica, sans-serif;} 
-.text{background-color: #db9ff9 ;padding: 15px 20px 15px 20px;text-align:center;font-family: Arial, Helvetica, sans-serif;background-color: #fc508f;} 
-.image{text-align:center;padding: 15px 20px 15px 20px;} 
-.warning{text-align:center;margin-top: 2px;font-family: Arial, Helvetica, sans-serif; color:white;} 
-.footer{text-align:right;font-family: Arial, Helvetica, sans-serif;} 
-button { padding: 15px 20px 15px 20px; color: #FFF; background-color: #5ac3ed; font-size: 18px; text-align: center; font-family: Arial, Helvetica, sans-serif; margin-bottom: 0px; width: 25%; } 
